@@ -1,0 +1,30 @@
+:- module(chap2_5_1,[ing_form/2]).
+
+ing_form(Inf,Form):-
+    not(is_list(Inf)),
+    atom_chars(Inf,List),
+    ing_form(List,Lform),
+    atom_chars(Form,Lform).
+
+ing_form(Inf,Form):-
+    reverse(Inf,[X,_,Y|_]),
+    vowel(X),vowel(Y),
+    append(Base,[_],Inf),
+    append(Base,[i,n,g],Form).
+
+ing_form(Inf,Form):-
+    reverse(Inf,[X,Z,Y|_]),
+    not(vowel(X)),
+    not(vowel(Y)),
+    vowel(Z),
+    append(Inf,[X,i,n,g],Form).
+
+ing_form(Inf,Form):-
+    append(Inf,[i,n,g],Form).
+
+vowel(a).
+vowel(e).
+vowel(i).
+vowel(o).
+vowel(u).
+vowel(y).

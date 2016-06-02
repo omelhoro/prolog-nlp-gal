@@ -1,0 +1,27 @@
+:- module(chap2_2_2,[np/1]).
+:- ['chap2_2_1.pdb'].
+
+np((Det,Adj,Noun)):-
+    determiner(Det),
+    adjective(Adj),
+    noun(Noun),
+    props(Adj,Props),
+    props(Noun,Props),
+    number(Det,Num),
+    number(Noun,Num).
+
+props(tall,animate).
+props(tall,structure).
+props(delicious,edible).
+props(awesome,static).
+props(sleeping,animate).
+
+props(building,structure).
+props(building,animate).
+props(man,human).
+props(man,animate).
+props(sheep,animate).
+props(cake,edible).
+props(sites,static).
+
+

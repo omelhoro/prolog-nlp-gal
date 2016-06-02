@@ -1,0 +1,35 @@
+determiner(this).
+determiner(these).
+determiner(the).
+determiner(a).
+
+noun(cat).
+noun(mice) .
+noun(sheep).
+noun(man).
+noun(men).
+noun(site).
+noun(sites).
+noun(cake).
+
+adjective(lazy).
+adjective(big).
+adjective(strong).
+adjective(crazy).
+adjective(tall).
+adjective(delicious).
+adjective(awesome).
+adjective(sleeping).
+
+number(this,singular) .
+number(these,plural).
+number(cat,singular).
+number(cake,singular).
+number(mice, plural).
+number(sheep,_).
+number(the, _).
+number(a, singular).
+number(man,singular).
+number(men,plural).
+number(site,singular).
+number(sites,plural).

@@ -1,0 +1,44 @@
+:- module(chap2_4,[is_happy/1,knows/2,wear/2,weather/2]).
+
+is_rich(igor).
+is_rich(michael).
+is_famous(igor).
+
+is_happy(Person):-
+    is_rich(Person),
+    is_famous(Person).
+
+knows(P1,P2):-
+    works_in(P1,Company),
+    works_in(P2,Company).
+
+knows(P1,P2):-
+    friend(P1,P2).
+
+knows(P1,P2):-
+    friend(P1,P3),
+    friend(P2,P3).
+works_in(igor,innog).
+works_in(michael,innog).
+
+
+friend(igor,cate).
+friend(michael,cate).
+friend(john,cate).
+
+wear(Clothes,Day):-
+    weather(Forecast,Day),
+    clothes(Forecast,Clothes).
+
+weather(wet,Day):-
+    weather(rainy,Day).
+
+weather(rainy,monday).
+weather(rainy,thursday).
+weather(wet,friday).
+
+clothes(wet,coat).
+clothes(cold,coat).
+clothes(rainy,hat).
+
+

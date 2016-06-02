@@ -1,0 +1,13 @@
+:- module(chap2_2,[mother/2,sibling/2]).
+
+female(mary).
+female(sue).
+parent(paul,mary).
+parent(paul,john).
+parent(sue,mary).
+parent(sue,john).
+parent(ben,sue).
+mother(Child,Mum) :- parent(Child,Mum),female(Mum).
+sibling(Child1,Child2) :- 
+    parent(Child1,Parent),
+    parent(Child2,Parent).

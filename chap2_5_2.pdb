@@ -1,0 +1,39 @@
+:- module(chap2_5_2,[affix/3]).
+
+affix(Inf,plural,Inf):-
+    same_plur(Inf).
+
+affix(Inf,plural,Form):-
+    atom_chars(Inf,Linf),
+    reverse(Linf,Revlinf),
+    plural(Linf,Revlinf,Lform),
+    atom_chars(Form,Lform).
+
+plural(I,Ri,F):-
+    ([s,s|_]=Ri;[h,c,t|_]=Ri;[h,s|_]=Ri),
+    append(I,[e,s],F).
+
+plural(I,Ri,F):-
+    ([e,s|_]=Ri;[e,g|_]=Ri;[e,g,d|_]=Ri),
+    append(I,[s],F).
+
+plural(I,[y|Rest],F):-
+    reverse(Rest,Base),
+    append(Base,[i,e,s],F).
+
+plural(I,[o,X|_],F):-
+    not(vowel(X)),
+    append(I,[s],F).
+
+plural(I,Ri,F):-
+    append(I,[s],F).
+
+same_plur(sheep).
+same_plur(duck).
+same(fish).
+
+vowel(a).
+vowel(o).
+vowel(i).
+vowel(u).
+vowel(e).

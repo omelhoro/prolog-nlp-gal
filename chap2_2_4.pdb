@@ -1,0 +1,37 @@
+:- module(chap2_2_4,[np/1]).
+
+np((Det,Noun)):-
+    det(Det,Agr),
+    noun(Noun,Agr).
+
+%neut
+det(das,(nom,sing,neut)).
+det(des,(gen,sing,neut)).
+det(dem,(dat,sing,neut)).
+det(das,(acc,sing,neut)).
+
+det(die,(nom,plur,neut)).
+det(der,(gen,plur,neut)).
+
+%masc
+det(der,(nom,sing,masc)).
+det(des,(gen,sing,masc)).
+det(dem,(dat,sing,masc)).
+det(den,(acc,sing,masc)).
+
+det(die,(nom,plur,masc)).
+det(der,(gen,plur,masc)).
+det(den,(dat,plur,masc)).
+det(die,(acc,plur,masc)).
+
+noun(mann,(nom,sing,masc)).
+noun(mann,(dat,sing,masc)).
+noun(mann,(acc,sing,masc)).
+noun(mannes,(gen,sing,masc)).
+noun(maennern,(_,plur,masc)).
+
+noun(auto,(nom,sing,neut)).
+noun(auto,(dat,sing,neut)).
+noun(auto,(acc,sing,neut)).
+noun(autos,(gen,sing,neut)).
+noun(autos,(_,plur,neut)).

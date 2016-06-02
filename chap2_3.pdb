@@ -1,0 +1,41 @@
+:- module(chap2_3,[mother/2,parent/2,grandfather/2,cousin/2,grandmother/2]).
+
+mother(Ch,Pa):-parent(Ch,Pa),female(Pa).
+
+grandfather(X,Y):-
+    grandparent(X,Y),
+    male(Y).
+grandmother(X,Y):-
+    grandparent(X,Y),
+    female(Y).
+
+grandparent(Enk,Grand):-
+    parent(Enk,Par),
+    parent(Par,Grand).
+
+cousin(X,Y):-
+    parent(X,Par),
+    (brother(Par,Par1);sister(Par,Par1)),
+    parent(Y,Par1).
+
+% broth_sis(X,Z):- brother(
+
+female(viktoria).
+female(nadja).
+female(vera).
+male(eugen).
+male(andrej).
+male(viktor).
+male(sergej).
+
+brother(eugen,viktor).
+
+parent(sergej,viktor).
+
+parent(igor,eugen).
+parent(igor,viktoria).
+
+parent(viktoria,vera).
+
+parent(eugen,andrej).
+parent(eugen,nadja).

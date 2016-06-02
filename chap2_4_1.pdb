@@ -1,0 +1,5 @@
+:- module(chap2_4_1,[prefix/3]).
+
+prefix(L,Subs,X):-
+    append(Pref,Subs,L),
+    length(Pref,X).
